@@ -22,26 +22,13 @@
     }
 
     body {
-      position: relative;
-      color: white;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* Capa de fondo con opacidad del 25% */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
       background-image: url('img/fondowebse.png');
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
-      opacity: 0.25; /* Opacidad del 25% */
-      z-index: -1;
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
     header {
@@ -68,7 +55,7 @@
     }
 
     #subtitle {
-      font-size: 1.05rem;
+      font-size: 1.05rem; /* Ajustado: era 1.15rem */
       margin-top: 8px;
       color: white;
       text-shadow: 
@@ -989,4 +976,3 @@
   </script>
 </body>
 </html>
-
