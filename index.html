@@ -43,8 +43,9 @@
       align-items: center;
       text-align: center;
       box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
       padding: 0 15px;
     }
 
@@ -92,8 +93,9 @@
       padding: 15px 0;
       background-color: rgba(0, 0, 0, 0.6);
       gap: 20px;
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .toolbar button {
@@ -343,14 +345,18 @@
       display: none;
     }
 
-    .carousel-title {
+    .carousel-title,
+    .programming-title {
       font-size: 2.2rem;
       font-weight: 700;
       color: white;
       text-align: center;
       margin: 30px auto 15px;
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .carousel-title {
       text-shadow: 
         0 0 2px #40E0D0,
         0 0 4px #40E0D0,
@@ -361,17 +367,61 @@
     }
 
     .programming-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: white;
-      text-align: center;
-      margin: 30px auto 15px;
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
       text-shadow: 
         0 0 12px #DA70D6,
         0 0 20px #DA70D6,
         0 0 30px rgba(218, 112, 214, 0.7);
+    }
+
+    .carousel-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 10px 0;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      animation: scroll 36s linear infinite;
+      padding: 10px 0;
+      width: fit-content;
+      min-width: 100%;
+      will-change: transform;
+    }
+
+    .carousel-track:hover,
+    .carousel-track:active {
+      animation-play-state: paused;
+    }
+
+    .carousel-slide {
+      width: 240px;
+      height: 180px;
+      margin-right: 20px;
+      border: 3px solid #40E0D0;
+      border-radius: 8px;
+      box-shadow: 0 0 15px #40E0D0, 0 0 25px rgba(64, 224, 208, 0.6);
+      background-color: #000;
+      flex-shrink: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-3900px); }
     }
 
     .programming-container {
@@ -513,68 +563,84 @@
       50%, 100% { opacity: 0.3; }
     }
 
-    .carousel-container {
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      padding: 10px 0;
-      overflow: hidden;
-    }
-
-    .carousel-track {
-      display: flex;
-      animation: scroll 36s linear infinite;
-      padding: 10px 0;
-      width: fit-content;
-      min-width: 100%;
-      will-change: transform;
-    }
-
-    .carousel-track:hover,
-    .carousel-track:active {
-      animation-play-state: paused;
-    }
-
-    .carousel-slide {
-      width: 240px;
-      height: 180px;
-      margin-right: 20px;
-      border: 3px solid #40E0D0;
-      border-radius: 8px;
-      box-shadow: 0 0 15px #40E0D0, 0 0 25px rgba(64, 224, 208, 0.6);
-      background-color: #000;
-      flex-shrink: 0;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .carousel-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      pointer-events: none;
-      user-select: none;
-      -webkit-user-drag: none;
-    }
-
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-3900px); }
-    }
-
     footer {
       background-color: black;
       color: white;
       text-align: center;
       padding: 15px;
       font-size: 0.9rem;
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    @media (max-width: 900px) {
+    /* === TABLETS: 768px to 900px === */
+    @media (min-width: 768px) and (max-width: 900px) {
+      header {
+        height: 24vh;
+        padding: 0 20px;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+        white-space: normal;
+      }
+
+      #subtitle {
+        font-size: 1.05rem;
+      }
+
+      main {
+        grid-template-areas: none;
+        display: flex;
+        flex-direction: column;
+        padding: 25px 15px;
+      }
+
+      .player-container,
+      .portada-dj,
+      .news-container,
+      .socials-container {
+        max-width: 650px;
+        width: 100%;
+        margin-bottom: 22px;
+      }
+
+      .carousel-title,
+      .programming-title {
+        font-size: 2.0rem;
+        margin: 28px auto 14px;
+      }
+
+      .carousel-slide {
+        width: 220px;
+        height: 165px;
+        margin-right: 18px;
+      }
+
+      @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-3510px); }
+      }
+
+      .programming-container {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        padding: 22px;
+      }
+
+      .day-item img {
+        max-width: 110px;
+        height: 110px;
+      }
+
+      #sonic_title,
+      #sonic_dj {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* === MOBILE: below 768px === */
+    @media (max-width: 767px) {
       header {
         height: 26vh;
       }
@@ -617,8 +683,6 @@
       .programming-title {
         font-size: 1.8rem;
         margin: 25px auto 12px;
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
       }
 
       .carousel-slide {
@@ -781,7 +845,6 @@
   <h2 class="carousel-title">Staff</h2>
   <div class="carousel-container">
     <div class="carousel-track">
-      <!-- Primera secuencia: 15 imágenes -->
       <div class="carousel-slide"><img src="img/staff1.jpg" alt="Staff 1"></div>
       <div class="carousel-slide"><img src="img/staff2.jpg" alt="Staff 2"></div>
       <div class="carousel-slide"><img src="img/staff3.jpg" alt="Staff 3"></div>
@@ -797,7 +860,6 @@
       <div class="carousel-slide"><img src="img/staff13.jpg" alt="Staff 13"></div>
       <div class="carousel-slide"><img src="img/staff14.jpg" alt="Staff 14"></div>
       <div class="carousel-slide"><img src="img/staff15.jpg" alt="Staff 15"></div>
-      <!-- Segunda secuencia: repetición completa para transición suave -->
       <div class="carousel-slide"><img src="img/staff1.jpg" alt="Staff 1"></div>
       <div class="carousel-slide"><img src="img/staff2.jpg" alt="Staff 2"></div>
       <div class="carousel-slide"><img src="img/staff3.jpg" alt="Staff 3"></div>
